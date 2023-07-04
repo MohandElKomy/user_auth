@@ -15,12 +15,14 @@ class UserLogin extends StatelessWidget {
     required this.user,
     required this.onPress,
     required this.loading,
+    required this.color,
   });
 
   final UserAuthLoginController controller = Get.put(UserAuthLoginController());
   final UserTypes user;
   final void Function() onPress;
   final RxBool loading;
+  final Color color;
 
   @override
   Widget build(BuildContext context) {
@@ -84,7 +86,7 @@ class UserLogin extends StatelessWidget {
             Obx(
               () => CustomProgressButton(
                 value: 'Sign in'.tr,
-                activeColor: AppColors.black,
+                activeColor: color,
                 isLoading: loading.value,
                 height: 50,
                 border: 40,

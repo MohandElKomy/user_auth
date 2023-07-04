@@ -49,7 +49,14 @@ class UserLogin extends StatelessWidget {
               submit: () {},
               textInputAction: TextInputAction.next,
               validator: (value) {
-                return AppValid.validName(value!);
+                if (user == UserTypes.name) {
+                  return AppValid.validName(value!);
+                } else if (user == UserTypes.phone) {
+                  return AppValid.validPhone(value!);
+                } else if (user == UserTypes.mail) {
+                  return AppValid.validEmail(value!);
+                }
+                return null;
               },
             ),
             user == UserTypes.phone
@@ -68,14 +75,7 @@ class UserLogin extends StatelessWidget {
                         submit: () {},
                         textInputAction: TextInputAction.next,
                         validator: (value) {
-                          if (user == UserTypes.name) {
-                            return AppValid.validName(value!);
-                          } else if (user == UserTypes.phone) {
-                            return AppValid.validPhone(value!);
-                          } else if (user == UserTypes.mail) {
-                            return AppValid.validEmail(value!);
-                          }
-                          return null;
+                          return AppValid.validPassword(value!);
                         },
                       ),
                     ],

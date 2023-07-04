@@ -25,6 +25,13 @@ class AppValid {
     return null;
   }
 
+  static String? validPassword(val) {
+    if (val!.length < 6) {
+      return "Enter Correct Password".tr;
+    }
+    return null;
+  }
+
   static String? validEmail(val) {
     Pattern pattern =
         r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]"
